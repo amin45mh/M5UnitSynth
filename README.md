@@ -653,7 +653,7 @@ Installation script by: Eric Prandovszky (prandov@yorku.ca)
 
 ---
 
-**Last Updated**: October 2024  
+**Last Updated**: October 2025
 **MATLAB Version**: R2024a or newer  
 **M5Unit-Synth Library**: Latest from GitHub
 

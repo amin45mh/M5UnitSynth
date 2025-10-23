@@ -14,7 +14,6 @@
 #define M5UNITML_H
 
 #include "LibraryBase.h"
-#include "M5Unified.h"
 #include "M5UnitSynth.h"
 
 // Command IDs for communication between MATLAB and Arduino
@@ -39,10 +38,12 @@ class M5UnitML : public LibraryBase {
 private:
     M5UnitSynth* synth;
     bool initialized;
+    // To test
+    MWArduinoClass& arduino;
 
 public:
     // Constructor
-    M5UnitML(MWArduinoClass& a) : LibraryBase(a), initialized(false) {
+    M5UnitML(MWArduinoClass& a) : LibraryBase(), arduino(a), initialized(false) {
         libName = "M5Stack/M5UnitSynth";
         a.registerLibrary(this);
     }
@@ -229,7 +230,7 @@ public:
                 responseSize = 1;
                 break;
             }
-
+            /*
             case CMD_SET_TEMPO: {
                 // Set tempo
                 // dataIn[0-1] = tempo (uint16_t, LSB first)
@@ -243,7 +244,7 @@ public:
                 responseSize = 1;
                 break;
             }
-
+            
             case CMD_SET_SUSTAIN: {
                 // Set sustain pedal
                 // dataIn[0] = channel (0-15)
@@ -257,7 +258,7 @@ public:
                 responseSize = 1;
                 break;
             }
-
+            
             case CMD_SET_TRANSPOSE: {
                 // Set transpose
                 // dataIn[0] = transpose value (signed int8_t, -12 to +12)
@@ -285,7 +286,7 @@ public:
                 responseSize = 1;
                 break;
             }
-
+            */
             case CMD_SYSTEM_RESET: {
                 // System reset
                 if (initialized) {

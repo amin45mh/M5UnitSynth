@@ -29,8 +29,8 @@ clear mySerialPorts
 % adding [,'Traceon', true,] prints debug info to the Command Window
 % adding [,'ForceBuildOn',true] forces a re-compile and re-upload arduinoServer each time (used during library development)
 if ~exist('esp32','var')
-    % esp32 = arduino(M5SerialPort,'ESP32-WROOM-DevKitC','Libraries',{'M5Stack/M5UnitSynth'},'ForceBuildOn',true);
-    esp32 = arduino(M5SerialPort,'ESP32-WROOM-DevKitC','Libraries',{'M5Stack/M5UnitSynth'},'ForceBuildOn',true,'TraceOn',true);
+    esp32 = arduino(M5SerialPort,'ESP32-WROOM-DevKitC','Libraries',{'M5Stack/M5UnitSynth'},'ForceBuildOn',true);
+    %esp32 = arduino(M5SerialPort,'ESP32-WROOM-DevKitC','Libraries',{'M5Stack/M5UnitSynth'},'ForceBuildOn',true,'TraceOn',true);
 end
 clear M5SerialPort
 

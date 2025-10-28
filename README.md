@@ -19,8 +19,10 @@ A custom MATLAB Arduino add-on library for the M5Stack M5Unit-Synth module. This
 
 **Step 2: Add the folder to MATLAB path**
 
+```matlab
 addpath('C:\**Edit**\M5UnitSynth\)
 savepath()
+```
 
 **Step 3: Run the installation utility**
 
@@ -38,8 +40,9 @@ This script will automatically:
 
 Check that the library {'M5Stack/M5UnitSynth'} is listed under Arduino libraries:
 
->> listArduinoLibraries
-
+```matlab
+listArduinoLibraries
+```
 
 You should see `'M5Stack/M5UnitSynth'` in the list.
 
@@ -95,3 +98,21 @@ This example is perfect for integrating the synthesizer into a larger project wi
 
 ### ComprehensiveExample.m
 A complete reference demonstrating all available functions in the M5UnitSynth library.
+
+## Function Reference and Syntax
+
+For detailed information about all available functions, their syntax, parameters, and usage, see the main library file:
+
+**`+arduinoioaddons/+M5Stack/M5UnitSynth.m`**
+
+This file contains comprehensive documentation for each function including:
+- function descriptions
+- Parameters and valid ranges
+- Return values
+- examples
+
+You can also view the function help in MATLAB by using:
+```matlab
+methods(synth)          % List all available methods
+help M5UnitSynth        % View general help
+```

@@ -3,7 +3,7 @@
  *
  * Class definition for M5Stack class that wraps APIs of the M5UnitSynth library.
  * https://github.com/m5stack/M5Unit-Synth. Based on the example UnitSynth add-on library.
- * @copyright 2025, Amin Mahmoudi, aminmh@yorku.ca
+ * @copyright 2025, Amin Mohammadi, aminmh@yorku.ca
  * Contact: aminmh@yorku.ca
  * Version: 1.0
  * Date: Oct 27, 2025

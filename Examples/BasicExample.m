@@ -14,7 +14,7 @@ disp(serialportlist) % Paste this into the command window
 
 %% Enter the position in the list of the port you'd like to connect to
 mySerialPorts = serialportlist;
-M5SerialPort= mySerialPorts(3); % *Before Running, enter the array position of the port you want to connect to!
+M5SerialPort= mySerialPorts(1); % *Before Running, enter the array position of the port you want to connect to!
 clear mySerialPorts
 
 %% Define the M5Stack's ESP32 processor as an 'arduino' object: arduino(Port, Board, Libraries, Other Flags)
@@ -43,22 +43,22 @@ if ~exist('neopix','var')
     neopix = addon(esp32, 'Adafruit/NeoPixel', 'D25', 10, 'NeoPixelType', 'GRB'); 
 end
 % Traffic Light Example:
- writeColor(neopix, 1, 'green');
+ %writeColor(neopix, 1, 'green');
  writeColor(neopix, 3, 'yellow');
  writeColor(neopix, 5, 'red');
 
 %% Unit Synth
 % Initialize connection
-synth = addon(esp32,'M5Stack/M5UnitSynth','RXPin',13,'TXPin',14);
+synth = addon(esp32,'M5Stack/M5UnitSynth','RXPin',13,'TXPin',14);       
 %   
 % Set up instrument
-synth.setInstrument(0, 0, 0);      % Bank 0, Channel 0, Piano
+synth.setInstrument(0, 0, 0);      % setInstrument(obj, bank, channel, instrument)
 synth.setMasterVolume(100);
 %   
 % Play a scale
 notes = [60, 62, 64, 65, 67, 69, 71, 72];  % C major scale
 for note = notes
-    synth.playNote(0, note, 0.5, 100);
+    synth.playNote(0, note, 0.5, 100);  % playNote(obj, channel, pitch, duration, velocity)
 end
 %   
 %   % Play chord with effects
@@ -67,7 +67,7 @@ synth.setNoteOn(0, 60, 100);       % C
 synth.setNoteOn(0, 64, 100);       % E
 synth.setNoteOn(0, 67, 100);       % G
 pause(2);
-synth.setAllNotesOff(0);
+synth.setAllNotesOff(0);     % setAllNotesOff(obj, channel)
  
 % Cleanup
-synth.reset();
+synth.reset();     % reset(obj)

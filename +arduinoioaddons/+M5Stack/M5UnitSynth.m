@@ -1,7 +1,7 @@
 %% Custom Arduino Add-On Library for the M5Unit-Synth by M5Stack
 % ==================================================================================================
 % M5UnitSynth class
-% Copyright 2025, Amin Mahmoudi
+% Copyright 2025, Amin Mohammadi
 % Contact: aminmh@yorku.ca
 % Version: 1.0.0
 % Date: October 27, 2025

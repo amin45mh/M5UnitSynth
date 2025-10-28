@@ -2,10 +2,8 @@
 % This example demonstrates all functions available in the M5UnitSynth library
 
 %% Hardware Setup:
-%   1. Connect M5Unit-Synth to ESP32 or M5Core2
-%   2. UART Configuration: RX=13, TX=14, Baud=31250 (MIDI standard)
-%   3. Connections: M5Unit-Synth RX -> ESP32 GPIO13, M5Unit-Synth TX -> ESP32 GPIO14
-%   4. Power: VCC (5V), GND
+%   Connect M5Unit-Synth to M5Core2
+%   Baud=31250 (MIDI standard)
 %   
 %   Alternative pin configurations for different M5Stack ports:
 %   - Port A: RX=33, TX=32
@@ -54,13 +52,12 @@ synth.setMasterVolume(100);  % Set master volume to 100 (0-127)
 % setNoteOn(channel, pitch, velocity)
 % - channel: MIDI channel (0-15)
 % - pitch: MIDI note number (0-127), 60=Middle C
-% - velocity: Note velocity (0-127), affects volume/intensity
+% - velocity: Note velocity (0-127), affects volume
 fprintf('Playing single notes...\n');
 synth.setNoteOn(0, 60, 100);    % Play middle C
 pause(0.5);
 synth.setNoteOff(0, 60, 0);     % Stop middle C (velocity usually 0 for noteOff)
 pause(0.2);
-
 synth.setNoteOn(0, 64, 100);    % Play E
 pause(0.5);
 synth.setNoteOff(0, 64, 0);
@@ -441,9 +438,7 @@ synth.reset();
 
 %% Cleanup
 fprintf('\n=== All Examples Complete! ===\n');
-fprintf('All functions have been demonstrated.\n\n');
 
-% Optionally clear objects (commented out to keep variables in workspace)
+%  clear objects
 % clear synth esp32;
 
-fprintf('Done!\n');

@@ -111,6 +111,42 @@ This file contains comprehensive documentation for each function including:
 - Return values
 - examples
 
+### Available Methods:
+
+**Core Functions:**
+- `begin` - Initialize the M5UnitSynth module with UART
+- `setInstrument` - Set MIDI instrument for a channel (0-127 instruments)
+- `setNoteOn` - Turn on a note (60 = Middle C)
+- `setNoteOff` - Turn off a note
+- `setAllNotesOff` - Turn off all notes on a channel
+- `reset` - Reset the synthesizer to default state
+
+**Volume & Expression:**
+- `setMasterVolume` - Set master volume (0-127)
+- `setVolume` - Set volume for specific channel (0-127)
+- `setExpression` - Set expression/dynamics (0-127)
+
+**Pitch Control:**
+- `setPitchBend` - Set pitch bend (-8192 to +8191)
+- `setPitchBendRange` - Set pitch bend range in semitones
+- `setTuning` - Set fine and coarse tuning
+
+**Audio Effects:**
+- `setReverb` - Set reverb effect (program, level, feedback)
+- `setChorus` - Set chorus effect (program, level, feedback, delay)
+- `setPan` - Set stereo pan (0=left, 64=center, 127=right)
+- `setEqualizer` - Set 4-band equalizer
+- `setVibrate` - Set vibrato (rate, depth, delay)
+
+**Advanced Synthesis:**
+- `setTvf` - Set time variant filter (cutoff, resonance)
+- `setEnvelope` - Set ADSR envelope (attack, decay, release)
+- `setModWheel` - Set modulation wheel parameters
+
+**Special:**
+- `setAllInstrumentDrums` - Set all channels to drum sounds
+- `playNote` - Convenience function to play note for duration
+
 You can also view the function help in MATLAB by using:
 ```matlab
 methods(synth)          % List all available methods

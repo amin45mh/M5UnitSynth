@@ -8,74 +8,6 @@
 % This .m file interacts with the M5UnitML.h C header file uploaded to an M5Stack device.
 % ==================================================================================================
 
-%% This Class creates an M5UnitSynth add-on device object. 
-% This allows you to communicate with the M5Unit-Synth synthesizer module (SAM2695-based MIDI synthesizer).
-% The M5Unit-Synth supports 128 General MIDI instruments, 16 channels, and various audio effects.
-
-% First initialize communication with the ESP32 inside the M5Stack device.
-%   Example:
-%       esp32 = arduino('COM3','ESP32-WROOM-DevKitC','Libraries',{'M5Stack/M5UnitSynth'});
-
-% Then initialize the M5UnitSynth library with UART pins.
-%   Example:
-%       synth = addon(esp32,'M5Stack/M5UnitSynth','RXPin',13,'TXPin',14);
-
-% Use the 'addon' object namespace to communicate with the M5Unit-Synth synthesizer.
-%   Example:
-%       synth.setInstrument(0,0,0);    % Set channel 0 to piano (bank 0, instrument 0)
-%       synth.setMasterVolume(100);    % Set master volume to 100 (0-127)
-%       synth.setNoteOn(0,60,100);     % Play middle C (channel 0, note 60, velocity 100)
-%       pause(1);
-%       synth.setNoteOff(0,60,0);      % Stop middle C
-%       synth.reset();                 % Reset synthesizer to default state
-
-%% Hardware Configuration:
-% UART Connection (Default for M5Stack Port C):
-%   - RX Pin: GPIO13 (M5Unit-Synth TX -> ESP32 RX)
-%   - TX Pin: GPIO14 (M5Unit-Synth RX -> ESP32 TX)
-%   - Baud Rate: 31250 (MIDI standard)
-%   - Power: VCC (5V), GND
-%
-% Alternative M5Stack Port Configurations:
-%   - Port A: RX=33, TX=32
-%   - Port B: RX=36, TX=26  
-%   - Port C: RX=13, TX=14 (default)
-
-%% Available Methods:
-% Core Functions:
-%   begin                - Initialize the M5UnitSynth module with UART
-%   setInstrument        - Set MIDI instrument for a channel (0-127 instruments)
-%   setNoteOn            - Turn on a note (60 = Middle C)
-%   setNoteOff           - Turn off a note
-%   setAllNotesOff       - Turn off all notes on a channel
-%   reset                - Reset the synthesizer to default state
-%
-% Volume & Expression:
-%   setMasterVolume      - Set master volume (0-127)
-%   setVolume            - Set volume for specific channel (0-127)
-%   setExpression        - Set expression/dynamics (0-127)
-%
-% Pitch Control:
-%   setPitchBend         - Set pitch bend (-8192 to +8191)
-%   setPitchBendRange    - Set pitch bend range in semitones
-%   setTuning            - Set fine and coarse tuning
-%
-% Audio Effects:
-%   setReverb            - Set reverb effect (program, level, feedback)
-%   setChorus            - Set chorus effect (program, level, feedback, delay)
-%   setPan               - Set stereo pan (0=left, 64=center, 127=right)
-%   setEqualizer         - Set 4-band equalizer
-%   setVibrate           - Set vibrato (rate, depth, delay)
-%
-% Advanced Synthesis:
-%   setTvf               - Set time variant filter (cutoff, resonance)
-%   setEnvelope          - Set ADSR envelope (attack, decay, release)
-%   setModWheel          - Set modulation wheel parameters
-%
-% Special:
-%   setAllInstrumentDrums - Set all channels to drum sounds
-%   playNote             - Convenience function to play note for duration
-
 %% References:
 % M5Unit-Synth Hardware: https://docs.m5stack.com/en/unit/Unit-Synth
 % SAM2695 Datasheet: https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/unit/Unit-Synth/SAM2695.pdf
@@ -118,8 +50,7 @@ classdef M5UnitSynth <  matlabshared.addon.LibraryBase & matlab.mixin.CustomDisp
     properties(Constant, Access = protected)
         LibraryName = 'M5Stack/M5UnitSynth'
         DependentLibraries = {}
-        LibraryHeaderFiles = {'M5Unit-Synth/src/M5UnitSynth.h'} % 
-        % it looks at: C:\ProgramData\MATLAB\SupportPackages\R2025a\aCLI\user\libraries
+        LibraryHeaderFiles = {'M5Unit-Synth/src/M5UnitSynth.h'} % it looks at: C:\ProgramData\MATLAB\SupportPackages\R2025a\aCLI\user\libraries
         CppHeaderFile = fullfile(arduinoio.FilePath(mfilename('fullpath')), 'src', 'M5UnitML.h')
         CppClassName = 'M5UnitML'
     end

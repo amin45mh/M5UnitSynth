@@ -13,30 +13,18 @@ A custom MATLAB Arduino add-on library for the M5Stack M5Unit-Synth module. This
 
 **Installation Steps:**
 
-**Step 1: Extract and open the M5UnitSynth folder**
-- Extract the `M5UnitSynth.zip` file
-- In MATLAB, navigate to (or open) the extracted `M5UnitSynth` folder
-
-**Step 2: Add the folder to MATLAB path**
-
-```matlab
-addpath('C:\**Edit**\M5UnitSynth\)
-savepath()
-```
-
-**Step 3: Run the installation utility**
+**Step 1: Run the installation utility**
 
 Navigate to the `Utilities` folder and run:
 
-installArduinoLibsFromGitHub
-
+installArduinoLibsFromGitHub.m
 
 This script will automatically:
 - Download the M5Unit-Synth library from GitHub
 - Install it to the correct MATLAB Arduino libraries folder
 - Check for compatibility and dependencies
 
-**Step 4: Verify installation**
+**Step 2: Verify installation**
 
 Check that the library {'M5Stack/M5UnitSynth'} is listed under Arduino libraries:
 
@@ -65,7 +53,7 @@ M5SerialPort = mySerialPorts(1);  % Adjust index as needed
 esp32 = arduino(M5SerialPort, 'ESP32-WROOM-DevKitC', ...
                 'Libraries', {'M5Stack/M5UnitSynth'});
 
-% Initialize the M5UnitSynth addon
+% Initialize the M5UnitSynth addon Assuming PORT C
 synth = addon(esp32, 'M5Stack/M5UnitSynth', 'RXPin', 13, 'TXPin', 14);
 
 % Play a note!
